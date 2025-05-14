@@ -8,7 +8,7 @@
 
 int main() {
     int populacao, pontoTu, ppopulacao, ppontoTu;
-    float area, pib, aarea, ppib;
+    float area, pib, aarea, ppib, densidadePop, pibPer, ddensidadePop, ppibPer;
     char estado [50], codigo [50], nomeCidade [50], eestado [50], ccodigo [50], nnomeCidade [50];
 
 
@@ -41,6 +41,14 @@ int main() {
     printf ("Digite o número de pontos turísticos:\n");
     scanf ("%d", &pontoTu);
 
+    densidadePop = populacao / area;
+    pibPer = (pib / populacao) * 1000000000;
+    
+    // Para que a informação seja impressa corretamente, devemos multiplicar o PIB per capita pelo valor de Bilhâo
+    // Dessa maneira o decimal fica mais facil para a compreensão.
+    // Ao invés de ficar 0.00000003 Bilhões de reais, o valor fica 3.000 reais ja com o numero de zero de forma correta
+
+
 
     // Fim da coleta de dados para a primeira carta
     // Seguimos para a coleta de dados para a segunda carta do jogo 
@@ -71,6 +79,8 @@ int main() {
     printf ("Digite o número de pontos turísticos:\n");
     scanf ("%d", &ppontoTu);
 
+    ddensidadePop = ppopulacao / aarea;
+    ppibPer = (ppib / ppopulacao) * 1000000000;
     // Coleta de dados concluida
     // Imprimimos então o as informações coletadas
     
@@ -82,7 +92,10 @@ int main() {
     printf ("População: %d \n", populacao);
     printf("Área: %.3f Km2 \n", area);
     printf ("PIB: %.3f bilhões de reais \n", pib);
-    printf ("Número de Pontos Turísticos: %d \n\n", pontoTu);
+    printf ("Número de Pontos Turísticos: %d \n", pontoTu);
+    printf ("Densidade populacional: %.3f hab/km2 \n", densidadePop);
+    printf ("PIB per capita: %.3f reais\n\n\n",pibPer);
+
 
     printf ("Carta 2\n");
     printf ("Estado: %s%s \n", eestado, ccodigo);
@@ -91,8 +104,8 @@ int main() {
     printf("Área: %.3f Km2 \n", aarea);
     printf ("PIB: %.3f bilhões de reais \n", ppib);
     printf ("Número de Pontos Turísticos: %d \n", ppontoTu);
-
-
+    printf ("Densidade populacional: %.3f hab/km2\n", ddensidadePop);
+    printf ("PIB per capita: %.3f reais\n",ppibPer);
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
     // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
